@@ -1,0 +1,21 @@
+* {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#screenshotButton {
+  border: 0;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 6px;
+  font-size: 50px;
+  background-color: rebeccapurple;
+  cursor: pointer;
+}

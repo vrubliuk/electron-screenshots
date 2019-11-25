@@ -1,13 +1,13 @@
-const { desktopCapturer, screen, shell } = require("electron");
+const { desktopCapturer, shell } = require("electron");
+const { screen } = require("electron").remote;
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
 
 const screenshotButton = document.getElementById("screenshotButton");
 
-screenshotButton.addEventListener("click", function(event) {
+screenshotButton.addEventListener("click", function() {
   const thumbnailSize = determineThumbnailSize();
-
   desktopCapturer
     .getSources({ types: ["screen"], thumbnailSize })
     .then(async sources => {
@@ -18,7 +18,6 @@ screenshotButton.addEventListener("click", function(event) {
             if (error) {
               return console.log(error.message);
             }
-
             shell.openExternal("file://" + screenshotPath);
           });
         }
@@ -27,9 +26,6 @@ screenshotButton.addEventListener("click", function(event) {
 });
 
 function determineThumbnailSize() {
-  console.log(screen);
-  
-  
   const screenSize = screen.getPrimaryDisplay().workAreaSize;
   const maxDimension = Math.max(screenSize.width, screenSize.height);
   return {

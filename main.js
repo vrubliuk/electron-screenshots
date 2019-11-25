@@ -30,9 +30,6 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
-  
-  
-  // mainWindow.setProgressBar(0.5)
 }
 
 // This method will be called when Electron has finished
